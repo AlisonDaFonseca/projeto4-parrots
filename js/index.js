@@ -69,9 +69,9 @@ function checkEnd(){
         setTimeout(() => {
             clearInterval(this.loop);
             alert(`Você ganhou em ${jogadas} jogadas! A duração do jogo foi de ${time.innerHTML} segundos!`);
-            let perguntarReinicio = prompt('Deseja reiniciar a partida?');
+            let perguntarReinicio = prompt('Você gostaria de reiniciar a partida? (sim ou não)');
             while(perguntarReinicio !== 'sim' && perguntarReinicio !== 'não'){
-                perguntarReinicio = prompt('Deseja reiniciar a partida?');
+                perguntarReinicio = prompt('Você gostaria de reiniciar a partida? (sim ou não)');
             }
             if(perguntarReinicio === 'sim'){
                 window.location.reload();
