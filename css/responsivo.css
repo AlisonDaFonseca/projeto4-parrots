@@ -1,0 +1,10 @@
+@media(max-width: 335px) {
+    .titulo-jogo{
+        font-size: 36px;
+        
+    }
+    .container-cartas{
+        width: 100%;
+        flex-direction: column;
+    }
+}

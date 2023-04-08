@@ -1,6 +1,7 @@
 body{
     background-color: #EEF9BF;
     font-family: 'Roboto', sans-serif;
+
 }
 *{
     box-sizing: border-box;
@@ -10,15 +11,33 @@ body{
     font-size: 56px;
     font-weight: 700;
     color: #75B79E;
-    margin: 40px 0;
+    margin: 50px 0;
+}
+.contador{
+    background-color: black;
+    width: 100px;
+    height: 50px;
+    color: #EEF9BF;
+    text-align: center;
+    opacity: 0.7;
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 7px;
+
+
+    position: fixed;
+    right: 0;
+    top: 0;
+    
 }
 .container-cartas{
-    width: 1000px;
+    width: 70%;
     height: auto;
     margin: auto;
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
 }
 .carta{
@@ -55,4 +74,7 @@ img{
 }
 .carta-verso{
     transform: rotateY(0deg)
+}
+.esconder{
+    display: none;
 }

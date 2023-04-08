@@ -1,5 +1,7 @@
 const  cardsBoard = document.querySelector('.container-cartas');
 let jogadas = 0;
+const time = document.querySelector('.contador');
+
 
 const imagens = [
     'bobrossparrot.gif',
@@ -31,6 +33,7 @@ listaCards.sort(comparador);
 listaCards2.sort(comparador);
 
 createdCard();
+iniciarTime();
 
 function createdCard(){
     let listaCardsCompleta = [...listaCards, ...listaCards2];
@@ -38,18 +41,19 @@ function createdCard(){
    
     for(let i = 0; i < listaCardsCompleta.length; i++){
         lista1 += `
-        <div onclick="virarCarta(this)" class="carta" data-imagem="${listaCardsCompleta[i]}">
+        <div onclick="virarCarta(this)" class="carta" data-test="card" data-imagem="${listaCardsCompleta[i]}">
             <div class="carta1 card-img">
-                <img src="./img/back.png">
+                <img data-test="face-down-image" src="./img/back.png">
             </div>
             <div class="carta2 card-img back-face">
-                <img src="./img/${listaCardsCompleta[i]}">
+                <img data-test="face-up-image" src="./img/${listaCardsCompleta[i]}">
             </div>
         </div>
         
         ` 
     }
    cardsBoard.innerHTML = lista1;
+   time.classList.remove('esconder');
 }
 
 function comparador(){
@@ -63,7 +67,15 @@ function checkEnd(){
 
     if(checarFim.length === (qtdCartas*2)){
         setTimeout(() => {
-            alert(`Você ganhou em ${jogadas} jogadas!`);
+            clearInterval(this.loop);
+            alert(`Você ganhou em ${jogadas} jogadas! A duração do jogo foi de ${time.innerHTML} segundos!`);
+            let perguntarReinicio = prompt('Deseja reiniciar a partida?');
+            while(perguntarReinicio !== 'sim' && perguntarReinicio !== 'não'){
+                perguntarReinicio = prompt('Deseja reiniciar a partida?');
+            }
+            if(perguntarReinicio === 'sim'){
+                window.location.reload();
+            } 
         }, 1000);
         
     }
@@ -128,3 +140,9 @@ function virarCarta(carta){
     
 }
 
+function iniciarTime(){
+    this.loop = setInterval(() => {
+        const tempo = Number(time.innerHTML);
+        time.innerHTML = tempo + 1;
+    }, 1000);
+}
