@@ -3,6 +3,13 @@ let jogadas = 0;
 const time = document.querySelector('.contador');
 
 
+
+let qtdCartas = Number(prompt('Digite a quantidade de cartas(número par e entre 4 e 14) : ')) / 2;
+
+
+while((qtdCartas * 2) < 4 || (qtdCartas * 2) > 14 || (qtdCartas * 2) % 2 !== 0){
+    qtdCartas = Number(prompt('Quantidade inválida! Digite novamente a quantidade de cartas: ')) / 2;
+}
 const imagens = [
     'bobrossparrot.gif',
     'explodyparrot.gif',
@@ -12,13 +19,6 @@ const imagens = [
     'tripletsparrot.gif',
     'unicornparrot.gif'
 ];
-let qtdCartas = Number(prompt('Digite a quantidade de cartas(número par e entre 4 e 14) : ')) / 2;
-
-
-while((qtdCartas * 2) < 2 || (qtdCartas * 2) > 14 || (qtdCartas * 2) % 2 !== 0){
-    qtdCartas = Number(prompt('Quantidade inválida! Digite novamente a quantidade de cartas: ')) / 2;
-}
-
 
 imagens.sort(comparador);
 
